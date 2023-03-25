@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz App</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1 align="center">Quiz App</h1>
+		</header>
+		<div>
+			<button id="reload-btn"><a href="Quiz.html">Reload Quiz</a></button>
+			</div>
+			<div class="question1">
+				<h2>Question 1:</h2>
+				<p>What is the full form of HTML?</p>
+				<label onclick="q1()">
+					<input type="radio" name="q1" value="a" >
+					a) HyperText Markup Language
+				</label>
+				<label>
+					<input type="radio" name="q1" value="b">
+					b) HyperText Madeup Language
+				</label>
+				<label>
+					<input type="radio" name="q1" value="c">
+					c) HydraText Mostup Language
+				</label>
+				<label>
+					<input type="radio" name="q1" value="d">
+					d) HyperText Madeup Listener
+				</label>
+			    <br>
+				<h2>Question 2:</h2>
+				<p>What is the tag used for paragraph?</p>
+				<label>
+					<input type="radio" name="q2" value="a">
+					a) q
+				</label>
+				<label>
+					<input type="radio" name="q2" value="b">
+					b) para
+				</label>
+				<label>
+					<input type="radio" name="q2" value="c">
+					c) paragraph
+				</label>
+				<label onclick="q1()">
+					<input type="radio" name="q2" value="d">
+					d) p
+				</label>
+				<br>
+				<h2>Question 3:</h2>
+				<p>What is the form element?</p>
+				<label>
+					<input type="radio" name="q3" value="a">
+					a) p
+				</label>
+				<label onclick="q1()">
+					<input type="radio" name="q3" value="b">
+					b) input
+				</label>
+				<label>
+					<input type="radio" name="q3" value="c">
+					c) b
+				</label>
+				<label>
+					<input type="radio" name="q3" value="d">
+					d) a
+				</label>
+				<br>
+				<h2>Question 4:</h2>
+				<p>What is the full form of JS?</p>
+				<label onclick="q1()">
+					<input type="radio" name="q4" value="a">
+					a) JavaScript
+				</label>
+				<label>
+					<input type="radio" name="q4" value="b">
+					b) JavaScreen
+				</label>
+				<label>
+					<input type="radio" name="q4" value="c">
+					c) JavaStream
+				</label>
+				<label>
+					<input type="radio" name="q4" value="d">
+					d) JavaScan
+				</label>
+		
+				<br>
+				<h2>Question 5:</h2>
+				<p>What is the tag used for bold style?</p>
+				<label onclick="q1()">
+					<input type="radio" name="q5" value="a">
+					a) b
+				</label>
+				<label>
+					<input type="radio" name="q5" value="b">
+					b) bold
+				</label>
+				<label>
+					<input type="radio" name="q5" value="c">
+					c) br
+				</label>
+				<label>
+					<input type="radio" name="q5" value="d">
+					d) bst
+				</label>
+			</div>
+			<br>
+			<div>
+			<button type="submit" onclick="func1()">Submit</button>
+			</div>
+			<br>
+	</div>
+	<script>
+		var c=0;
+		function q1(){
+			c=c+1
+		}
+        function func1(){
+            alert("Your Score is: "+c);
+        }
+    </script>
+</body>
+</html>
