@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Mouse Events</title>
+    </head>
+    <body bgcolor="pink">
+        <p id="my-paragraph" onmouseover="this.style.color='blue'" onmouseout="this.style.color='black'">
+            Hero Vired is a premium LearnTech company offering industry-relevant programs in partnership with world-class institutions to create the change-makers of tomorrow. Part of the rich legacy of the Hero Group, we aim to transform the skilling landscape in India by creating programs delivered by leading industry practitioners that help professionals and students enhance their skills and employability.
+        </p>
+        <input type="text" id="my-input-textbox">
+        <button id="but" onclick="document.getElementById('my-paragraph').innerHTML = document.getElementById('my-input-textbox').value" onmouseover="this.innerHTML='SUBMIT'" onmouseout="this.innerHTML='submit'">submit</button>
+        <br><br>
+        <ul>
+            <li class="list-item" onmouseover="this.style.color='red'; this.style.fontWeight='bold'" onmouseout="this.style.color='black'; this.style.fontWeight='normal'">List Item 1</li>
+            <li class="list-item" onmouseover="this.style.color='red'; this.style.fontWeight='bold'" onmouseout="this.style.color='black'; this.style.fontWeight='normal'">on mouse out</li>
+            <li class="list-item" onmouseover="this.style.color='red'; this.style.fontWeight='bold'" onmouseout="this.style.color='black'; this.style.fontWeight='normal'">List Item 3</li>
+          </ul>
+    </body>
+</html>
