@@ -1,0 +1,186 @@
+Question 1:  Consider an array with N number of multiple integers. Find below values - 
+(i)The element with the Minimum value 
+(ii)The element with the Maximum value 
+(iii)Average of all array elements
+(iv)Total number of array elements (Count).
+
+Code:
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]= {31, 42, 25, 21, 56,  61, 13, 45, 76, 55};
+        int x=0,y=0;
+        for(int c:a){
+            y+=c;
+            x+=1;
+        }
+        y=(int)y/x;
+        int minn=Integer.MIN_VALUE,maxx=Integer.MAX_VALUE;
+        for(int i=0;i<x;i++){
+            if(a[i]<maxx){
+                maxx=a[i];
+            }
+            if(a[i]>minn){
+                minn=a[i];
+            }
+        }
+        System.out.println("Minimun Value in array "+maxx);
+        System.out.println("Maximum Value in array "+minn);
+        System.out.println("Average Value in array "+y);
+        System.out.println("Total Number of Elements "+x);
+    }
+}
+
+-----------------------------------------------------------------------------
+Question 2: WAP in Java to print all the array elements in reverse order.
+
+Code:
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]= {31, 42, 25, 21, 56,  61, 13, 45, 76, 55};
+        int x=0;
+        for(int c:a){
+            x+=1;
+        }
+        System.out.println("Array Elements in Reverse Order:");
+        for(int i=x-1;i>=0;i--){
+            System.out.print(a[i]+" ");
+        }
+    }
+}
+
+----------------------------------------------------------------------------
+Question 3:  WAP in Java to print all the array elements in ascending order and in descending order.
+
+Code:
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]= {23, 21, 44, 32, 12};
+        int x=0;
+        for(int c:a){
+            x+=1;
+        }
+        Arrays.sort(a);
+        System.out.print("The Elements in Ascending Order: ");
+        for(int i=0;i<x;i++){
+            System.out.print(a[i]+" ");
+        }
+        System.out.println();
+        System.out.print("The Elements in Descending Order: ");
+        for(int i=x-1;i>=0;i--){
+            System.out.print(a[i]+" ");
+        }
+    }
+}
+
+---------------------------------------------------------------------------
+Question 4: WAP in Java to print the Largest Prime number from the given array of integer numbers.
+
+Code:
+
+import java.util.*;
+import java.lang.Math;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]={2, 29, 51, 8, 4};
+        int x=0,c=0,maxx=0;
+        for(int cc:a){
+            x+=1;
+        }
+        for(int i=0;i<x;i++){
+            c=0;
+            for(int j=2;j<a[i];j++){
+                if(a[i]%j==0){
+                    c+=1;
+                    break;
+                }
+            }
+            if(c==0){
+                if(maxx<a[i]){
+                    maxx=a[i];
+                }
+            }
+        }
+        System.out.println(maxx+" is the largest prime in array.");
+    }
+}
+
+---------------------------------------------------------------------------------------
+Question 5: WAP in Java to shift all the array elements having value as one to the end of an array.
+
+Code:
+
+import java.util.*;
+import java.lang.Math;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]= {3, 1, 4, 1, 2, 1, 8, 3, 2, 1};
+        int x=0,c=0,maxx=0;
+        for(int cc:a){
+            x+=1;
+        }
+        int b[]=new int[x];
+        int p=0;
+        for(int i=0;i<x;i++){
+            if(a[i]!=1){
+                b[p]=a[i];
+                p+=1;
+            }
+            if(a[i]==1){
+                c++;
+            }
+        }
+        for(int i=0;i<c;i++){
+            b[p]=1;
+            p++;
+        }
+        for(int i=0;i<x;i++){
+        System.out.print(b[i]+" ");
+    }
+    }
+}
+
+---------------------------------------------------------------------------------------
+Question 6: Consider a subset Array-A with N number of elements. And another Array-B with N number of elements.
+
+Code:
+
+import java.util.*;
+import java.lang.Math;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+    int a[]= {3, 1, 3, 4, 1, 2, 1, 8, 3, 2, 1, 1, 3, 2, 3, 3, 4};
+    int b[]={1, 2, 3, 5, 9};
+        int x=0,y=0,c=0,maxx=0;
+        for(int cc:a){
+            x+=1;
+        }
+        for(int ccc:b){
+            y+=1;
+        }
+        for(int i=0;i<y;i++){
+            c=0;
+            for(int j=0;j<x;j++){
+                if(b[i]==a[j]){
+                    c+=1;
+                }
+            }
+            System.out.println("Frequency of "+b[i]+": "+c);
+        }
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------
+
