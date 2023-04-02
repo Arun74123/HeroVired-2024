@@ -1,0 +1,273 @@
+Question 1: Create a menu driven command-line based application in Java for below File operations - 
+(i)Create a new folder
+(ii)Create a new text file
+(iii)Write into a text file 
+(iv)Append data to a text file
+(v)Rename a file
+(vi)Delete a File
+Take the absolute path, file name, folder name and the file-content-data as a String from the user as per the requirement. And complete the task chosen by a user.
+Note - The program should handle the exceptions and return a meaningful error-message in case any error occurs.
+
+Code:
+
+
+import java.io.*;
+import java.util.*;
+public class FileOperations {
+	private static void createFolder(BufferedReader br) {
+        System.out.print("Enter the folder path: ");
+        String folderPath;
+        try {
+            folderPath = br.readLine();
+            File folder = new File(folderPath);
+            if (folder.mkdirs()) {
+                System.out.println("Folder created successfully.");
+            } else {
+                System.out.println("Failed to create folder.");
+            }
+        } catch (Exception e) {
+            System.out.println("Failed to create folder. " + e.getMessage());
+        }
+    }
+	private static void createFile(BufferedReader br) {
+        System.out.print("Enter the file path: ");
+        String filePath;
+        try {
+            filePath = br.readLine();
+            File file = new File(filePath);
+            if (file.createNewFile()) {
+                System.out.println("File created successfully.");
+            } else {
+                System.out.println("Failed to create file.");
+            }
+        } catch (Exception e) {
+            System.out.println("Failed to create file. " + e.getMessage());
+        }
+    }
+
+    private static void writeToFile(BufferedReader br) {
+        System.out.print("Enter the file path: ");
+        String filePath, fileContent;
+        try {
+            filePath = br.readLine();
+            System.out.print("Enter the content to write: ");
+            fileContent = br.readLine();
+            FileWriter writer = new FileWriter(filePath);
+            writer.write(fileContent);
+            writer.close();
+            System.out.println("Content written to file successfully.");
+        } catch (Exception e) {
+            System.out.println("Failed to write to file. " + e.getMessage());
+        }
+    }
+
+    private static void appendToFile(BufferedReader br) {
+        System.out.print("Enter the file path: ");
+        String filePath, fileContent;
+        try {
+            filePath = br.readLine();
+            System.out.print("Enter the content to append: ");
+            fileContent = br.readLine();
+            FileWriter writer = new FileWriter(filePath, true);
+            writer.write(fileContent);
+            writer.close();
+            System.out.println("Content appended to file successfully.");
+        } catch (Exception e) {
+            System.out.println("Failed to append to file. " + e.getMessage());
+        }
+    }
+
+    private static void renameFile(BufferedReader br) {
+    System.out.print("Enter the file path: ");
+    String filePath, newFileName;
+    try {
+        filePath = br.readLine();
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found.");
+            return;
+        }
+        System.out.print("Enter the new file name: ");
+        newFileName = br.readLine();
+        String parentPath = file.getParent();
+        File newFile = new File(parentPath + File.separator + newFileName);
+        if (newFile.exists()) {
+            System.out.println("File with the same name already exists.");
+            return;
+        }
+        if (file.renameTo(newFile)) {
+            System.out.println("File renamed successfully.");
+        } else {
+            System.out.println("Failed to rename file.");
+        }
+    } catch (Exception e) {
+        System.out.println("Failed to rename file. " + e.getMessage());
+    }
+    }
+    private static void deleteFile(BufferedReader br) {
+    System.out.print("Enter the file path: ");
+    String filePath;
+    try {
+        filePath = br.readLine();
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found.");
+            return;
+        }
+        if (file.delete()) {
+            System.out.println("File deleted successfully.");
+        } else {
+            System.out.println("Failed to delete file.");
+        }
+    } catch (Exception e) {
+        System.out.println("Failed to delete file. " + e.getMessage());
+    }
+}
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int choice=7;
+        do {
+            System.out.println("\nMenu\n1. Create a new folder\n2. Create a new text file\n3. Write into a text file\n4. Append data to a text file\n5. Rename a file\n6. Delete a file\n7. Exit");
+            System.out.print("Enter your choice: ");
+            try {
+                choice = Integer.parseInt(br.readLine());
+            } catch (Exception e) {
+                System.out.println("Invalid choice. Please enter a number between 1 and 7.");
+                continue;
+            }
+            switch (choice) {
+                case 1:
+                    createFolder(br);
+                    break;
+                case 2:
+                    createFile(br);
+                    break;
+                case 3:
+                    writeToFile(br);
+                    break;
+                case 4:
+                    appendToFile(br);
+                    break;
+                case 5:
+                    renameFile(br);
+                    break;
+                case 6:
+                    deleteFile(br);
+                    break;
+                case 7:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 7.");
+                    break;
+            }
+        } while (choice != 7);
+}
+}
+
+--------------------------------------------------------------------------------------------------------------
+Question 2:WAP in Java to display the total number of characters present in the given text file.
+
+Code:
+
+import java.io.*;
+public class FileOperations {
+    public static void main(String[] args) {
+        try {
+            File file = new File("filename.txt"); //replace filename.txt with your file name
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            int count = 0;
+            int character;
+            while ((character = br.read()) != -1) {
+                count++;
+            }
+            System.out.println("Total number of characters in the file: " + count);
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------
+Question 3:Solve the HackerRank Problem given as a link below - 
+
+https://www.hackerrank.com/challenges/java-exception-handling-try-catch/problem?isFullScreen=true
+
+Code:
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+          Scanner sc=new Scanner(System.in);
+    try{
+        int x=sc.nextInt();
+        int y=sc.nextInt();
+        System.out.println(x/y);
+    }
+    catch(ArithmeticException e1)
+    {
+        System.out.println("java.lang.ArithmeticException: / by zero");
+    }
+    catch(InputMismatchException e2)
+    {
+        System.out.println("java.util.InputMismatchException");
+    }
+}
+}
+
+----------------------------------------------------------------------------
+Question 4: Solve the HackerRank Problem given as a link below - 
+
+https://www.hackerrank.com/challenges/java-exception-handling/problem?isFullScreen=true
+
+Code:
+
+import java.util.Scanner;
+class MyCalculator {
+    long pow=1,res=0;
+    long power(int n, int p)throws Exception{
+    pow=1;
+    res=0;
+    if(n<0 || p<0)
+    {
+        throw new Exception("n or p should not be negative.");
+    }
+     else if(n==0 && p==0)
+    {
+        throw new Exception("n and p should not be zero."); 
+    }
+     else{
+        for(int i=1;i<=p;i++)
+        pow=pow*n;
+    }
+    res=(long)pow;
+    return res;
+}       
+}
+
+public class Solution {
+    public static final MyCalculator my_calculator = new MyCalculator();
+    public static final Scanner in = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        while (in .hasNextInt()) {
+            int n = in .nextInt();
+            int p = in .nextInt();
+            
+            try {
+                System.out.println(my_calculator.power(n, p));
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
