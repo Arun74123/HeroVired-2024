@@ -1,0 +1,136 @@
+import java.util.Scanner;
+
+public class CalculatorApp {
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        boolean keepRunning = true;
+
+        while (keepRunning) {
+            System.out.println("Welcome to the Calculator App!");
+            System.out.println("Please select an operation:");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Percentage");
+            System.out.println("6. Factorial");
+            System.out.println("7. Square");
+            System.out.println("8. Cube");
+            System.out.println("9. Square Root");
+            System.out.println("10. a Power b");
+            System.out.println("11. a Root b");
+            System.out.print("Enter your choice (1-11): ");
+            
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the first number: ");
+                    double num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    double num2 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 + num2));
+                    break;
+
+                case 2:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 - num2));
+                    break;
+
+                case 3:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 * num2));
+                    break;
+
+                case 4:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    if (num2 == 0) {
+                        System.out.println("Error: Division by zero");
+                    } else {
+                        System.out.println("Result: " + (num1 / num2));
+                    }
+                    break;
+
+                case 5:
+                    System.out.print("Enter the number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the percentage: ");
+                    double percent = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 * percent / 100));
+                    break;
+
+                case 6:
+                    System.out.print("Enter the number: ");
+                    num1 = scanner.nextDouble();
+                    double result = 1;
+                    for (int i = 1; i <= num1; i++) {
+                        result *= i;
+                    }
+                    System.out.println("Result: " + result);
+                    break;
+
+                case 7:
+                    System.out.print("Enter the number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 * num1));
+                    break;
+
+                case 8:
+                    System.out.print("Enter the number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.println("Result: " + (num1 * num1 * num1));
+                    break;
+
+                case 9:
+                    System.out.print("Enter the number: ");
+                    num1 = scanner.nextDouble();
+                    if (num1 < 0) {
+                        System.out.println("Error: Invalid input");
+                    } else {
+                        System.out.println("Result: "+Math.sqrt(num1));
+                    }
+                    break;
+                case 10:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + Math.pow(num1,num2));
+                    break;
+                case 11:
+                    System.out.print("Enter the first number: ");
+                    num1 = scanner.nextDouble();
+                    System.out.print("Enter the second number: ");
+                    num2 = scanner.nextDouble();
+                    System.out.println("Result: " + Math.pow(num2,(1/num1)));
+                    break;
+                default:
+                    System.out.println("Enter valid option");
+
+                
+            }
+            System.out.println("Do you wamt to continue(y/n):");
+            char ch=scanner.next().charAt(0);
+            if(ch=='y'){
+                keepRunning=true;
+            }
+            else{
+                keepRunning=false;
+                System.out.println("Exit");
+
+            }
+        }
+    }
+}
+
