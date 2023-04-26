@@ -1,0 +1,984 @@
+Problem no 1
+ 
+Link: https://www.hackerrank.com/challenges/java-1d-array-introduction/problem
+
+Code:
+
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+	   
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+    int [] a=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=scan.nextInt();
+        }
+        scan.close();
+
+        // Prints each sequential element in array a
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 2
+
+Link:https://www.hackerrank.com/challenges/java-2d-array/problem
+
+Code:
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        List<List<Integer>> arr = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            String[] arrrow = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
+
+            List<Integer> arritems = new ArrayList<>();
+            for (int j = 0; j < 6; j++) {
+                int arrItem = Integer.parseInt(arrrow[j]);
+                arritems.add(arrItem);
+            }
+            arr.add(arritems);
+        }
+        bufferedReader.close();
+         Integer[][] ar = new Integer[arr.size()][];
+        for(int i=0; i<arr.size(); i++){
+            List<Integer> row = arr.get(i);
+            ar[i] = row.toArray(new Integer[row.size()]);
+        }  
+        int max = Integer.MIN_VALUE;
+        for(int i=0; i<4; i++){
+            for(int j =0; j<4; j++){
+                int sum = ar[i][j] + ar[i][j+1] + ar[i][j+2]
+                                    + ar[i+1][j+1] +
+                          ar[i+2][j] + ar[i+2][j+1] + ar[i+2][j+2];
+                          
+                if(max < sum) max = sum;
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 3:
+
+Link:https://www.hackerrank.com/challenges/java-negative-subarray/problem
+
+Code:
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n;
+        n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+        }
+        int sum=0,c=0;
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                sum=0;
+                for(int k=i;k<=j;k++){
+                    sum=sum+a[k];
+                }
+                 if(sum<0){
+                c++;
+            }
+            }
+           
+        }
+        System.out.print(c);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 4
+
+Link:https://www.hackerrank.com/challenges/java-arraylist/problem
+
+Code:
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int j=sc.nextInt();
+        ArrayList<Integer> al[]=new ArrayList[j];
+        int k=0;
+        while(k<j){
+            int n=sc.nextInt();
+            ArrayList<Integer> v1=new ArrayList<>();
+            for(int i=0;i<n;i++){
+                Integer val=sc.nextInt();
+                v1.add(val);
+            }
+            al[k]=v1;
+            k++;
+        }
+        int que=sc.nextInt();
+        int queri=0;
+        ArrayList<Integer> al2[]=new ArrayList[que];
+        while(queri<que){
+            ArrayList<Integer> query=new ArrayList<>();
+            int first=sc.nextInt();
+            int second=sc.nextInt();
+            query.add(first);
+            query.add(second);
+            al2[queri]=query;
+            queri++;
+        }
+        for(int i=0;i<al2.length;i++){
+            ArrayList<Integer> ref1=al2[i];
+            int query1=ref1.get(0);
+            int query2=ref1.get(1);
+            ArrayList<Integer> ref2=al[query1-1];
+            try{
+            int ans=ref2.get(query2-1);
+            System.out.println(ans);
+            }
+            catch(Exception e){
+            System.out.println("ERROR!");
+            }
+        
+        }
+
+
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 5:
+
+Link:https://www.hackerrank.com/challenges/java-1d-array/problem
+
+Code:
+
+import java.util.*;
+
+public class Solution {
+
+    public static boolean canWin(int l, int[] g,int i) {
+        int N = g.length;
+        if(i < 0 || g[i] == 1){ return false; }
+        if(i == N - 1 || i + l >= N){return true;}
+        g[i] = 1;
+        
+        return canWin(l, g, i+1) || canWin(l, g, i-1) || canWin(l, g, i+l); 
+        
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int q = scan.nextInt();
+        while (q-- > 0) {
+            int n = scan.nextInt();
+            int l = scan.nextInt();
+            
+            int[] g = new int[n];
+            for (int i = 0; i < n; i++) {
+                g[i] = scan.nextInt();
+            }
+
+            System.out.println( (canWin(l, g,0)) ? "YES" : "NO" );
+        }
+        scan.close();
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 6
+
+Link:https://www.hackerrank.com/challenges/java-list/problem
+
+Code:
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        ArrayList<Integer>al=new ArrayList<>();
+        int n;
+        n=sc.nextInt();
+        for(int i=0;i<n;i++){
+            int val=sc.nextInt();
+            al.add(val);
+        }
+        int q=sc.nextInt();
+        for(int i=0;i<q;i++){
+            String st=sc.next();
+            if(st.length()==0)continue;
+            if(st.charAt(0)=='I'){
+                int ind=sc.nextInt();
+                int valu=sc.nextInt();
+                al.add(ind,valu);
+            }
+            else{
+                int ind2=sc.nextInt();
+                // System.out.println(ind2);
+                al.remove(ind2);
+            }
+        }
+        for(int i=0;i<al.size();i++){
+            System.out.print(al.get(i)+" ");
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 7
+
+Lnik:https://www.hackerrank.com/challenges/java-stack/problem
+
+Code:
+
+import java.util.*;
+import java.io.*;
+class Solution{
+    
+    public static void main(String []argh)
+{
+    Scanner sc = new Scanner(System.in);
+    while (sc.hasNext()) {
+        String s = sc.nextLine();
+        System.out.println(check(s));
+    }
+}
+
+public static boolean check(String s){
+    Stack<Character> st = new Stack<>();
+    for(char input: s.toCharArray()){
+        if(input == '{'){
+            st.push('}');
+        }
+        else if(input == '('){
+            st.push(')');
+        }
+        else if(input == '['){
+            st.push(']');
+        }
+        else if(st.isEmpty() || input != st.pop()){
+            return false;
+        }
+    }
+    return st.isEmpty();
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 8
+
+Link:https://www.hackerrank.com/challenges/java-hashset/problem
+
+Code:
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+ public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        String [] pair_left = new String[t];
+        String [] pair_right = new String[t];
+        
+        for (int i = 0; i < t; i++) {
+            pair_left[i] = s.next();
+            pair_right[i] = s.next();
+        }
+
+
+
+//Write your code here
+        Set<String> set = new HashSet<String>();
+        for (int i=0;i<t;i++){
+            set.add(pair_left[i] + " " +pair_right[i]);
+            System.out.println(set.size());
+        }
+
+
+
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 9
+
+Link:https://www.hackerrank.com/challenges/java-comparator/problem
+
+Code:
+
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 10
+
+Link:https://www.hackerrank.com/challenges/java-generics/problem
+
+Code:
+
+import java.io.; import java.util.;
+
+public class Solution {
+
+public static void main(String[] args) {
+
+    List<Integer> listInt =  Arrays.asList(1,2,3);
+    List<String> listString = Arrays.asList("Hello","World");
+
+    print(listInt);
+    print(listString);
+}
+
+private static void print(List<?> list) {
+    for(Object x : list) {    
+        System.out.println(x);
+    }
+}
+}
+------------------------------------------------------------------------------------------------------------
+Problem no 11
+
+Link:https://www.hackerrank.com/challenges/java-sort/problem
+
+Code:
+
+import java.util.*;
+import java.lang.*;
+
+//Shortest Approach
+class Student{
+    public int Id;
+    public String name;
+    public float CGPA;
+
+    public Student(int Id, String name, float CGPA) {
+        this.Id = Id;
+        this.name = name;
+        this.CGPA = CGPA;
+    }
+}
+class Checker implements Comparator<Student> {
+    // Pass 2 case
+    // @Override
+    // public int compare(Student a, Student b) {
+    //     if (a.CGPA > b.CGPA) {
+    //         return -1;
+    //     } else if (a.CGPA < b.CGPA) {
+    //         return 1;
+    //     } else {
+    //         if (a.name.compareToIgnoreCase(b.name) != 0){
+    //             return a.name.compareToIgnoreCase(b.name);
+    //         }else{
+    //             return Integer.compare(a.Id, b.Id);
+    //         }
+    //     }
+    // }
+    
+    // Pass 100%
+    @Override
+    public int compare(Student a, Student b){
+        if(a.CGPA == b.CGPA){
+            return a.name.compareTo(b.name);
+        } else if(a.CGPA < b.CGPA){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+}
+public class Solution {
+    private static final Checker checker = new Checker();
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int nStudent = Integer.parseInt(in.nextLine());
+
+        Student[] students = new Student[nStudent];
+        for (int student = 0; student < nStudent; student ++){
+            students[student] = new Student(in.nextInt(), in.next(), in.nextFloat());
+        }
+
+
+        Arrays.sort(students, checker);
+        for(int i = 0; i < students.length; i++) {
+            System.out.println(students[i].name);
+        }
+
+        in.close();
+    }
+
+}
+
+------------------------------------------------------------------------------------------------------------
+Problem no 12
+
+Link:https://www.hackerrank.com/challenges/java-dequeue/problem
+
+Code:
+
+ import java.util.*;
+    public class test 
+    {
+        private static Deque<Integer> deque = new ArrayDeque<Integer>();
+        
+        public static void main(String[] args) 
+        {
+            Scanner in = new Scanner(System.in);
+
+            int n = in.nextInt();
+            int m = in.nextInt();
+            int max=0;
+            
+            for (int i = 0; i < n && max<m; i++)
+            {
+                int num=in.nextInt();
+                deque.addLast(num);  
+                
+                if (deque.size()==m)
+                {
+                    int uniqNum=checkUniqueNumber(deque);
+                    deque.removeFirst();
+                    
+                    if (uniqNum>max)
+                    {
+                        max=uniqNum;
+                    }
+                }
+                        
+            }
+            
+            System.out.println(max);
+        }
+        
+        private static int checkUniqueNumber(Deque<Integer> deque)
+        {
+            
+            return new HashSet<Integer>(deque).size();
+        }
+    }
+
+------------------------------------------------------------------------------------------------------------
+Problem no 13
+
+Link:https://www.hackerrank.com/challenges/java-bitset/problem
+
+Code:
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+            Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();
+        int M=sc.nextInt();
+        BitSet bs1=new BitSet(N);
+        BitSet bs2=new BitSet(N);
+        for(int i=1;i<=M;i++) {
+
+            String operation=sc.next();
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            if(operation.equals("AND")) {
+                if(a==1) bs1.and(bs2);else bs2.and(bs1); }
+            else if(operation.equals("OR")) {
+                if(a==1) bs1.or(bs2);else bs2.or(bs1); }
+            else if(operation.equals("XOR")) {
+                if(a==1) bs1.xor(bs2); else bs2.xor(bs1); }
+            else if(operation.equals("SET")) {
+                if(a==1)  bs1.set(b, true); else bs2.set(b,true);  }
+            else if(operation.equals("FLIP")) {
+                if(a==1) bs1.flip(b); else bs2.flip(b);
+            }
+            System.out.println(bs1.cardinality()+" "+bs2.cardinality());
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+Problem No: 14
+
+Link:https://www.hackerrank.com/challenges/java-priority-queue/problem
+
+Code:
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.*;
+/*
+ * Create the Student and Priorities classes here.
+ */
+ class Student {
+    private int id;
+    private String name;
+    private double cgpa;
+
+    public Student(int id, String name, double cgpa){
+        this.id = id;
+        this.name = name;
+        this.cgpa = cgpa;
+    }
+    
+    int getID(){
+        return id;
+    }
+    
+    String getName(){
+        return name;
+    }
+    
+    double getCGPA(){
+        return cgpa;
+    }
+}
+
+class Priorities {
+    public List<Student> getStudents(List<String> events){
+        List<Student> students = new ArrayList<Student>();
+        for(int i=0; i < events.size(); i++){
+            String[] event = events.get(i).split(" ");
+            if(event[0].equals("ENTER")){
+                students.add(new Student(Integer.valueOf(event[3]), event[1], Double.valueOf(event[2])));
+            }else {
+                Collections.sort(students, new studentComparetor());
+                if(students.size() > 0){
+                    students.remove(0);
+                }
+            }
+        }
+        return students;
+    }
+}
+
+class studentComparetor implements Comparator<Student>{
+    public int compare(Student s1, Student s2){
+        if(s1.getCGPA() == s2.getCGPA()){
+            if(s1.getName().compareTo(s2.getName()) == 0){
+                return s1.getID() - s2.getID();
+            }else {
+                return s1.getName().compareTo(s2.getName());
+            }  
+        }else {
+            return Double.compare(s2.getCGPA(), s1.getCGPA());
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+Problem no 15
+
+Link:https://www.hackerrank.com/challenges/java-string-compare/problem
+
+Code:
+
+import java.io.; import java.util.;
+
+public class Solution {
+
+public static void main(String[] args) {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    Scanner sc = new Scanner(System.in);
+    String str = sc.nextLine();
+    int k = sc.nextInt();
+    System.out.println(smallestSubString(str,k)+"\n"+largestSubString(str,k));
+}
+static String smallestSubString(String str,int k)
+{
+    List<String> list = getSubStrings(str,k);
+    //int len = list.length;
+    return list.get(0);
+}
+static String largestSubString(String str,int k)
+{
+    List<String> list = getSubStrings(str,k);
+    int len = list.size();
+    return list.get(len-1);
+}
+static List<String> getSubStrings(String str, int k)
+{
+    List<String> subStr = new ArrayList<String>();
+    int l = str.length();
+    for(int i=0;i<l;i++)
+    {
+        String sub = "";
+        boolean flag = false;
+        for(int j=i;j<i+k;j++)
+        {
+            if(j>=l)
+            {
+                //subStr.add(sub);
+                flag = true;
+                break;
+            }
+            else
+            {
+                 sub+=str.charAt(j);  
+            }
+        }
+        if(flag)
+        {
+            break;
+        }
+        subStr.add(sub);
+    }
+    Collections.sort(subStr);
+    return subStr;
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+Problem no 16
+
+Link:https://www.hackerrank.com/challenges/java-string-reverse/problem
+
+Code:
+
+import java.util.Scanner;
+
+public class Palindrome { public static void main(String[] args) { Scanner scanner = new Scanner(System.in); String s = scanner.next(); scanner.close();
+
+    boolean isPalindrome = true;
+    for (int i = 0; i < s.length() / 2; i++) {
+        if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+            isPalindrome = false;
+            break;
+        }
+    }
+
+    if (isPalindrome) {
+        System.out.println("Yes");
+    } else {
+        System.out.println("No");
+    }
+}
+}
+------------------------------------------------------------------------------------------------------------
+
+Problem no 17
+
+Link:https://www.hackerrank.com/challenges/java-anagrams/problem
+
+Code:
+
+import java.util.Scanner;
+
+public class Solution {
+
+static boolean isAnagram(String a, String b) {
+
+    if(a.length() != b.length()){
+        return false;
+    }
+
+    char[] arrA = a.toLowerCase().toCharArray();
+    char[] arrB = b.toLowerCase().toCharArray();
+
+    java.util.Arrays.sort(arrA);
+    java.util.Arrays.sort(arrB);
+    return java.util.Arrays.equals(arrA, arrB);
+
+}
+public static void main(String[] args) {
+
+    Scanner scan = new Scanner(System.in);
+    String a = scan.next();
+    String b = scan.next();
+    scan.close();
+    boolean ret = isAnagram(a, b);
+    System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 18
+
+Link:https://www.hackerrank.com/challenges/java-string-tokens/problem
+
+Code:
+
+import java.io.; import java.util.;
+
+public class Solution {
+
+public static void main(String[] args) {
+    Scanner scan = new Scanner(System.in);
+    String s = scan.nextLine().trim();
+    scan.close();
+    if(s.length()==0){
+        System.out.println("0");
+        return;
+    }
+    String words[] = s.split("[\\s+ !,?._'@]+");
+    System.out.println(words.length);
+    for(String token:words){
+        System.out.println(token);
+    }
+    // Write your code here.
+
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+Problem no 19
+
+Link:https://www.hackerrank.com/challenges/pattern-syntax-checker/problem
+
+Code:
+
+import java.io.; import java.util.; import java.util.regex.*; public class Solution {
+
+public static void main(String[] args) {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    Scanner in = new Scanner(System.in);
+    int testCases = Integer.parseInt(in.nextLine());        
+        while(in.hasNextLine())
+        {
+            try
+            {
+                String pattern = in.nextLine();    
+                Pattern.compile(pattern);
+                System.out.println("Valid");
+            }
+            catch(PatternSyntaxException exception)
+            {
+                System.out.println("Invalid");
+            }                
+        }                     
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 20
+
+Link:https://www.hackerrank.com/challenges/java-regex/problem
+
+Code:
+
+import java.io.; import java.util.; import java.util.regex.*; public class Solution {
+
+public static void main(String[] args){
+    Scanner in = new Scanner(System.in);
+    while(in.hasNext()){
+        String IP = in.next();
+        System.out.println(IP.matches(new MyRegex().pattern));
+    }
+
+}
+}
+
+class MyRegex{ public static String zeroTo255 = "(\d{1,2}|(0|1)\" + "d{2}|2[0-4]\d|25[0-5])";
+public static String pattern = zeroTo255 + "\."+ zeroTo255 + "\." + zeroTo255 + "\." + zeroTo255;
+
+Pattern p = Pattern.compile(pattern);
+}
+
+------------------------------------------------------------------------------------------------------------
+Problem no 21
+
+Link:https://www.hackerrank.com/challenges/duplicate-word/problem
+
+Code:
+
+import java.util.Scanner; import java.util.regex.Matcher; import java.util.regex.Pattern;
+
+public class DuplicateWords {
+
+public static void main(String[] args) {
+
+    String regex = "\\b(\\w+)(\\s+\\1\\b)+";
+    Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+
+    Scanner in = new Scanner(System.in);
+    int numSentences = Integer.parseInt(in.nextLine());
+
+    while (numSentences-- > 0) {
+        String input = in.nextLine();
+
+        Matcher m = p.matcher(input);
+
+        // Check for subsequences of input that match the compiled pattern
+        while (m.find()) {
+            input = input.replaceAll("(?i)"+m.group(), m.group(1));
+        }
+        // Prints the modified sentence.
+        System.out.println(input);
+    }
+
+    in.close();
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 22
+
+Link:https://www.hackerrank.com/challenges/valid-username-checker/problem
+
+Code:
+
+import java.io.; import java.util.; import java.util.regex.*; public class Solution {
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+int n = scanner.nextInt();
+String empty = scanner.nextLine();
+Pattern specialCharactersString = Pattern.compile("[!@#$,'^%&*()+=|<>?{}\\[\\]~-]");
+Matcher hasSpecial;
+if (1 <= n && n <= 100) {
+    String[] username = new String[n];
+    for (int i = 0; i < n; i++) {
+        username[i] = scanner.nextLine();
+    }
+    for (int i = 0; i < n; i++) {
+        hasSpecial = specialCharactersString.matcher(username[i]);
+        if ((username[i].length() >= 8) && (username[i].length() <= 30) && Character.isAlphabetic(username[i].charAt(0)) && !(hasSpecial.find())) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Invalid");
+        }
+    }
+}
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 23
+
+Link:https://www.hackerrank.com/challenges/java-primality-test/problem
+
+Code:
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(scanner.nextBigInteger().isProbablePrime(100) ? "prime" : "not prime");
+        scanner.close();
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 24
+
+Link:https://www.hackerrank.com/challenges/java-currency-formatter/problem
+
+Code:
+
+import java.io.; import java.util.; import java.text.; import java.math.; import java.util.regex.*;
+
+public class Solution {
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    double payment = scanner.nextDouble();
+    scanner.close();
+
+    // Write your code here.
+    String us,india,china,france;
+   us = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
+   india = NumberFormat.getCurrencyInstance(new Locale("EN","IN")).format(payment);
+   china= NumberFormat.getCurrencyInstance(Locale.CHINA).format(payment);
+   france= NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
+    System.out.println("US: " + us);
+    System.out.println("India: " + india);
+    System.out.println("China: " + china);
+    System.out.println("France: " + france);
+}
+}
+
+------------------------------------------------------------------------------------------------------------
+
+Problem no 25
+
+Link:https://www.hackerrank.com/challenges/tag-content-extractor/problem
+
+Code:
+
+import java.io.; import java.util.; import java.util.regex.*; public class Solution {
+
+public static void main(String[] args) {
+    String regex = "<(.+)>([^<>]+)</(\\1)>";
+    Pattern p = Pattern.compile(regex);
+
+    Scanner in = new Scanner(System.in);
+    int testCases = Integer.parseInt(in.nextLine());
+
+    while (testCases-- > 0) {
+        String line = in.nextLine();
+        Matcher m = p.matcher(line);
+
+        if (m.find()) {
+            m.reset();
+            while (m.find()) {
+                System.out.println(m.group(2));
+            }
+        } else {
+            System.out.println("None");
+        }
+    }
+
+    in.close();
+}
+}
