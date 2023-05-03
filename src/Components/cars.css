@@ -1,0 +1,44 @@
+#side{
+    background-color: rgb(14, 230, 230);
+    height: 50vh;
+    border-radius: -10px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    
+}
+#infocars{
+    background-color: rgb(5, 5, 78);
+    text-align: center;
+    color: aliceblue;
+    padding: 1%;
+    margin-top: 10%;
+    font-size: larger;
+}
+#viewcars{
+    margin: 3%;
+    align-content: center;
+    background-color: rgb(9, 10, 10);
+    border-radius: 30px;
+   
+}
+#book{
+    margin: 2%;
+    margin-left: 40%;
+}
+.i1
+{
+    height: 260px;
+    width: 230px;
+}
+.i2
+{
+    padding-top: 20px;
+    height: 190PX;
+    width: 180PX;
+    padding-left: 30px;
+}
+/* .r1
+{
+    margin-right: 200px;
+} */
